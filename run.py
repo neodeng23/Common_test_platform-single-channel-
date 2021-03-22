@@ -10,12 +10,6 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
 
-    def showtime(self):
-        datetime = QTime.currentTime()
-        text = datetime.toString()
-        self.label_time.setText(text)
-
-
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     mainWindow = MyMainForm()
