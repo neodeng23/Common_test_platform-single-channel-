@@ -16,10 +16,10 @@ class MyTable(QTableWidget):
         # self.setRowHeight(0, 100)  # 设置行高(第几行， 行高)
 
         column_name = [
+            'Result',
             'Step',
             'TestGroup',
             'TestName',
-            'Result',
             'CMD',
             'LowLimit',
             'Value',

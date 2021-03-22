@@ -1,16 +1,9 @@
-# This is a sample Python script.
+path = "C:/Users/Administrator/Desktop/"
+csv_name = "test.csv"
+csvFile = open(path + csv_name, newline='')
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from load_csv import *
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+row_list = Initialize_test_table(csvFile)
+print(row_list)
+print(len(row_list))
