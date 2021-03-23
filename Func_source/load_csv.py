@@ -5,8 +5,8 @@ import csv
 import time
 from datetime import datetime
 
-path = "C:/Users/jsyzdlf/Desktop/"
-#path = "C:/Users/Administrator/Desktop/"
+#path = "C:/Users/jsyzdlf/Desktop/"
+path = "C:/Users/Administrator/Desktop/"
 csv_name = "test.csv"
 csvFile = open(path + csv_name, newline='')
 

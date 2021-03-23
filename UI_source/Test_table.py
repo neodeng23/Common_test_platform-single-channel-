@@ -46,6 +46,10 @@ class MyTable(QTableWidget):
         self.insertRow(num)
         for line_num in range(0, len(data)):
             self.setItem(num, line_num, QTableWidgetItem(data[line_num]))  # 设置表格内容(行， 列) 文字
+        if data[0] == "pass":
+            self.item(num, 0).setBackground(QBrush(QColor(0, 255, 0)))
+        else:
+            self.item(num, 0).setBackground(QBrush(QColor(255, 0, 0))) #红色
 
 
 if __name__ == '__main__':

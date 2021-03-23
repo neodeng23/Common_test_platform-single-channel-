@@ -8,8 +8,8 @@ import sys
 import time
 
 
-path = "C:/Users/jsyzdlf/Desktop/"
-#path = "C:/Users/Administrator/Desktop/"
+#path = "C:/Users/jsyzdlf/Desktop/"
+path = "C:/Users/Administrator/Desktop/"
 csv_name = "test.csv"
 
 
