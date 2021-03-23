@@ -12,6 +12,7 @@ class MyTable(QTableWidget):
         self.setWindowTitle("Test_Item")  # 设置表格名称
         self.resize(600, 200)  # 设置表格尺寸（整体大小）
         self.setColumnCount(10)  # 设置列数
+        self.setEditTriggers(QTableWidget.NoEditTriggers)
         # self.setColumnWidth(0, 200)  # 设置列宽(第几列， 宽度)
         # self.setRowHeight(0, 100)  # 设置行高(第几行， 行高)
 
@@ -28,7 +29,10 @@ class MyTable(QTableWidget):
             'duration'
         ]
         self.setHorizontalHeaderLabels(column_name)  # 设置列名称
-        self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
+        #self.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.horizontalHeader().setDefaultSectionSize(117)
+        self.horizontalHeader().setSectionResizeMode(QHeaderView.Interactive)
         self.horizontalHeader().setStyleSheet(
             "QHeaderView::section{background-color:rgb(155, 194, 230);font:11pt '宋体';color: black;};")
             #"QHeaderView::section{background-color:rgb(40,143,218);font:13pt '宋体';color: white;};")

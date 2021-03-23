@@ -74,6 +74,4 @@ def Test_input_UI(single_test_list, res, value, duration):
 
 
 if __name__ == "__main__":
-    row_list = Initialize_test_table(csvFile)
-    print(row_list[1])
-    print(len(row_list))
+    pass
