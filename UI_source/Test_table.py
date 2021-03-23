@@ -11,7 +11,7 @@ class MyTable(QTableWidget):
         super(MyTable, self).__init__(parent)
         self.setWindowTitle("Test_Item")  # 设置表格名称
         self.resize(600, 200)  # 设置表格尺寸（整体大小）
-        self.setColumnCount(9)  # 设置列数
+        self.setColumnCount(10)  # 设置列数
         # self.setColumnWidth(0, 200)  # 设置列宽(第几列， 宽度)
         # self.setRowHeight(0, 100)  # 设置行高(第几行， 行高)
 
@@ -34,12 +34,25 @@ class MyTable(QTableWidget):
             #"QHeaderView::section{background-color:rgb(40,143,218);font:13pt '宋体';color: white;};")
 
     def update_item_data(self, data):
-        """更新内容"""
-        self.setItem(0, 0, QTableWidgetItem(data))
-        self.setItem(0, 1, QTableWidgetItem(data))  # 设置表格内容(行， 列) 文字
+        """
+        更新内容
+        data = [res, Step, TestGroup, TestName, CMD, LowLimit, value, UpLimit, Unit, duration]
+        """
+        num = self.rowCount()
+        self.insertRow(num)
+        for line_num in range(0, len(data)):
+            self.setItem(num, line_num, QTableWidgetItem(data[line_num]))  # 设置表格内容(行， 列) 文字
 
 
-def add_line(self):
-    row = self.table.rowCount()
-    self.table.setRowCount(row + 1)
-    id = str(self.id)
+if __name__ == '__main__':
+    data = ['pass', 'UartCom', 'Resistance', 'Open L Resistance Channel', 'TurnLResistance\\r\\n', '', '23', '', '',
+            '0:00:03.0001']
+    app = QApplication(sys.argv)
+    myTable = MyTable()
+    myTable.show()
+    myTable.update_item_data(data)
+    time.sleep(2)
+    myTable.update_item_data(data)
+    time.sleep(2)
+    myTable.update_item_data(data)
+    sys.exit(app.exec_())
