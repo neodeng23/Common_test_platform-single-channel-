@@ -6,8 +6,10 @@ from load_csv import *
 import sys
 import time
 
-path = "C:/Users/jsyzdlf/Desktop/"
+# path = "C:/Users/jsyzdlf/Desktop/"
 # path = "C:/Users/Administrator/Desktop/"
+path = "C:/test_config/"
+
 csv_name = "test.csv"
 
 
@@ -23,13 +25,14 @@ class Update_data(QThread):
 
     def run(self):
         test_start_time = datetime.now()
+        res_flag = 0
         try:
             csvFile = open(path + csv_name, newline='')
             row_list = Initialize_test_table(csvFile)
         except:
+            res_flag = 1
             row_list = [["invaild csv"]]
         line_num = len(row_list)
-        res_flag = 0
         for test_item in range(1, line_num):
             updata_data = Test_Csv_item(row_list, test_item)
             self.sinOut.emit(updata_data)

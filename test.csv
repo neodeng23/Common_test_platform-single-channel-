@@ -1,5 +1,4 @@
 enabled,Step,TestGroup,TestName,PortDevice,RetryTimes,Cmd,SendEndSympol,TimeOut,CheckValue,LowLimit,UpLimit,unit
-,,,,,,,,,,,,
 1,UartCom,Resistance,Open L Resistance Channel,Fixture,,TurnLResistance\r\n,0D0A,3000,OK,,,
 1,UartCom,Resistance,L Resistance,RM3545,,MEASure:RESIstance?,,1000,,,,ohm
 1,CutOut,Resistance,L Resistance,,,Sci2Sta.py,,,,,,

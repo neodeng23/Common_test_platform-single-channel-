@@ -21,21 +21,26 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
-        self.label_name = QtWidgets.QLabel(self.centralwidget)
-        self.label_name.setGeometry(QtCore.QRect(10, 30, 300, 30))
-        self.label_name.setObjectName("label_name")
-        self.label_name.setFont(QFont("Roman times", 25, QFont.Bold))
-
         pe = QPalette()
         pe.setColor(QPalette.WindowText, Qt.blue)  # 设置字体颜色
         pe.setColor(QPalette.Window, Qt.darkGray)  # 设置背景颜色
 
+        self.label_name = QtWidgets.QLabel(self.centralwidget)
+        self.label_name.setGeometry(QtCore.QRect(10, 30, 250, 30))
+        self.label_name.setObjectName("label_name")
+        self.label_name.setFont(QFont("Roman times", 25, QFont.Bold))
+
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(10, 90, 300, 100))      #(, 上边高度, 右边长度, 下边高度,)
+        self.label.setGeometry(QtCore.QRect(10, 90, 250, 100))      #(, 上边高度, 右边长度, 下边高度,)
         self.label.setObjectName("label")
         self.label.setFont(QFont("Roman times", 30, QFont.Bold))
         self.label.setAutoFillBackground(True)  # 设置背景充满，为设置背景颜色的必要条件
         self.label.setPalette(pe)
+
+        self.label_status = QtWidgets.QLabel(self.centralwidget)
+        self.label_status.setGeometry(QtCore.QRect(280, 90, 400, 100))      #(, 上边高度, 右边长度, 下边高度,)
+        self.label_status.setObjectName("label")
+        self.label_status.setFont(QFont("Calibri", 30, QFont.Bold))
 
         self.Normal_Test_Button = QtWidgets.QPushButton(self.centralwidget)
         self.Normal_Test_Button.setGeometry(QtCore.QRect(480, 30, 91, 31))
@@ -112,6 +117,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_name.setText(_translate("MainWindow", "Station"))
         self.label.setText(_translate("MainWindow", "Normal_Test"))
+        self.label_status.setText(_translate("MainWindow", "Standby"))
         self.Normal_Test_Button.setText(_translate("MainWindow", "Normal_Test"))
         self.Offline_Test_Button.setText(_translate("MainWindow", "Offline_Test"))
         self.Loop_Test_Button.setText(_translate("MainWindow", "Loop_Test"))

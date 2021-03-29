@@ -3,6 +3,7 @@ import os
 import re
 import csv
 import time
+from serial_test import serial_send_cmd
 from datetime import datetime
 
 
@@ -47,12 +48,41 @@ def Test_Csv_item(row_list, line_num):
 
 
 def Go_Test(single_test_list):
-    start_time = datetime.now()
+    """
+    :param single_test_list: test.csv中的一行
+    :return: 测试结果，测试值，测试时间
+    """
+    res = "pass"
     value = "23"
-    time.sleep(0.5)
+    start_time = datetime.now()
+    test_step = single_test_list[1]
+    test_device = single_test_list[4]
+    SendEndSympol = single_test_list[7]
+    test_cmd = single_test_list[6]
+    TimeOut = single_test_list[8]
+    if test_step == "UartCom":
+        try:
+            value = serial_send_cmd(test_device, test_cmd, TimeOut, SendEndSympol)
+        except:
+            value = "fail send cmd"
+    elif test_step == "script":
+        pass
+    elif test_step == "CutOut":
+        pass
+    elif test_step == "Judge":
+        pass
+    elif test_step == "VisaCom":
+        pass
+    elif test_step == "FeasaCom":
+        pass
+    else:
+        res = "Error"
+        value = "Error step"
+    time.sleep(0.1)
+    # 待添加limits功能
     time_elapsed = datetime.now() - start_time
     dur = format(time_elapsed)[:-2]
-    return "pass", value, dur
+    return res, value, dur
 
 
 def Test_input_UI(single_test_list, res, value, duration):
@@ -67,6 +97,10 @@ def Test_input_UI(single_test_list, res, value, duration):
     #duration = duration
     data = [res, Step, TestGroup, TestName, CMD, LowLimit, value, UpLimit, Unit, duration]
     return data
+
+
+def Check_value(value):
+    pass
 
 
 if __name__ == "__main__":

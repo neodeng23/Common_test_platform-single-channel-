@@ -5,17 +5,18 @@ import time
 import serial
 
 
-file = "/Users/" + current_user + "/Library/Atlas/Resources/test_config/serial_info.json"
-unit = sys.argv[1]
-cmd = sys.argv[2]
-timeout = sys.argv[3]
-endsymbol = sys.argv[4]
+file = "C:/test_config/serial_info.json"
+# PortDevice = sys.argv[1]
+# cmd = sys.argv[2]
+# timeout = sys.argv[3]
+# endsymbol = sys.argv[4]
 
 
-def main():
-    device_Path, baud_Rate, Data_Bits = get_serial_config(unit)
+def serial_send_cmd(PortDevice, cmd, timeout, endsymbol):
+    device_Path, baud_Rate, Data_Bits = get_serial_config(PortDevice)
     res = communiate(device_Path, cmd, baud_Rate, timeout, endsymbol)
-    print(res)
+    #print(res)
+    return res
 
 
 def read_json_config(file):
@@ -24,9 +25,9 @@ def read_json_config(file):
     return config
 
 
-def get_serial_config(unit):
+def get_serial_config(PortDevice):
     config_data = read_json_config(file)
-    unit_data = config_data["serial_test_" + unit]
+    unit_data = config_data[PortDevice]
     device_Path = unit_data["devicePath"]
     baud_Rate = unit_data["baudRate"]
     Data_Bits = unit_data["DataBits"]
@@ -78,4 +79,4 @@ def communiate(PortName, cmd, BaudRate, timeout, endsymbol):
 
 
 if __name__ == '__main__':
-    main()
+    serial_send_cmd("DUT", "11111", "5", "0D0A")

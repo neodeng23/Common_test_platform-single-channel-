@@ -1,0 +1,61 @@
+{
+	"serial_test_1" : 
+	{
+		"devicePath": "/dev/cu.usbserial-A50285BI",
+    "baudRate" :115200,
+    "StopBits" :1,
+    "FlowControl" : "YES",
+    "DataBits" :8,
+    "parity" : "N"
+	},
+  "serial_test_2" : 
+  {
+    "devicePath": "/dev/cu.usbserial-A50285B2",
+    "baudRate" :115200,
+    "StopBits" :1,
+    "FlowControl" : "YES",
+    "DataBits" :8,
+    "parity" : "N"
+  },
+    "serial_test_3" : 
+  {
+    "devicePath": "/dev/cu.usbserial-A50285B3",
+    "baudRate" :115200,
+    "StopBits" :1,
+    "FlowControl" : "YES",
+    "DataBits" :8,
+    "parity" : "N"
+  },
+    "serial_test_4" : 
+  {
+    "devicePath": "/dev/cu.usbserial-A50285B4",
+    "baudRate" :115200,
+    "StopBits" :1,
+    "FlowControl" : "YES",
+    "DataBits" :8,
+    "parity" : "N"
+  },
+    "serial_test_Fixture" : 
+  {
+    "devicePath": "/dev/cu.usbserial-A50285B4",
+    "baudRate" :115200,
+    "StopBits" :1,
+    "FlowControl" : "YES",
+    "DataBits" :8,
+    "parity" : "N"
+  },
+	"Instrument_name" : 
+  [ 
+    "DS4014E",
+    "DEV2",
+    "DEV3",
+    "DEV4"
+	],
+
+	"controlbits" :
+	{
+		"version" : 1,
+		"CONTROL_BITS_TO_CHECK" : [],
+		"CONTROL_BITS_TO_CLEAR_ON_PASS" : []
+	}
+}
