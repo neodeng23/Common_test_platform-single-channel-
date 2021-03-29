@@ -32,7 +32,6 @@ class Update_data(QThread):
         res_flag = 0
         for test_item in range(1, line_num):
             updata_data = Test_Csv_item(row_list, test_item)
-            print(updata_data)
             self.sinOut.emit(updata_data)
             if updata_data[0] != "pass":
                 res_flag = 1
