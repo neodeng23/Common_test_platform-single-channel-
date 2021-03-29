@@ -13,6 +13,7 @@ class MyTable(QTableWidget):
         self.resize(600, 200)  # 设置表格尺寸（整体大小）
         self.setColumnCount(10)  # 设置列数
         self.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.scrollToBottom()
         # self.setColumnWidth(0, 200)  # 设置列宽(第几列， 宽度)
         # self.setRowHeight(0, 100)  # 设置行高(第几行， 行高)
 
@@ -46,21 +47,7 @@ class MyTable(QTableWidget):
         self.insertRow(num)
         for line_num in range(0, len(data)):
             self.setItem(num, line_num, QTableWidgetItem(data[line_num]))  # 设置表格内容(行， 列) 文字
-        if data[0] == "pass":
+        if data[0] == "pass" or "All_Pass!!!!":
             self.item(num, 0).setBackground(QBrush(QColor(0, 255, 0)))
         else:
             self.item(num, 0).setBackground(QBrush(QColor(255, 0, 0))) #红色
-
-
-if __name__ == '__main__':
-    data = ['pass', 'UartCom', 'Resistance', 'Open L Resistance Channel', 'TurnLResistance\\r\\n', '', '23', '', '',
-            '0:00:03.0001']
-    app = QApplication(sys.argv)
-    myTable = MyTable()
-    myTable.show()
-    myTable.update_item_data(data)
-    time.sleep(2)
-    myTable.update_item_data(data)
-    time.sleep(2)
-    myTable.update_item_data(data)
-    sys.exit(app.exec_())

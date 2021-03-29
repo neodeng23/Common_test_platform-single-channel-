@@ -5,10 +5,6 @@ import csv
 import time
 from datetime import datetime
 
-#path = "C:/Users/jsyzdlf/Desktop/"
-path = "C:/Users/Administrator/Desktop/"
-csv_name = "test.csv"
-csvFile = open(path + csv_name, newline='')
 
 header_lines = ["enabled", "Step", "TestGroup", "TestName", "PortDevice", "RetryTimes", "Cmd", "SendEndSympol", "TimeOut", "CheckValue", "LowLimit", "UpLimit", "unit"]
 
@@ -53,7 +49,7 @@ def Test_Csv_item(row_list, line_num):
 def Go_Test(single_test_list):
     start_time = datetime.now()
     value = "23"
-    time.sleep(3)
+    time.sleep(0.5)
     time_elapsed = datetime.now() - start_time
     dur = format(time_elapsed)[:-2]
     return "pass", value, dur

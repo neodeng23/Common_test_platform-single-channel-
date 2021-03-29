@@ -20,6 +20,11 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
 
     def test_Add(self, test_item_res):
         self.Test_Item.update_item_data(test_item_res)
+        self.Test_Item.scrollToBottom()
+        if test_item_res[0] == 'All_Pass!!!!' or 'Test_Fail!!!!':
+            self.Start_Button.setEnabled(True)
+        else:
+            pass
 
 
 if __name__ == "__main__":
