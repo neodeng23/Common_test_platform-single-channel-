@@ -24,7 +24,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.Test_Item.update_item_data(test_item_res)
         print(test_item_res)
         self.Test_Item.scrollToBottom()
-        if test_item_res[0] == 'All_Pass!!!!' or 'Test_Fail!!!!':
+        if test_item_res[0] == 'All_Pass!!!!' or test_item_res[0] == 'Test_Fail!!!!':
             self.Start_Button.setEnabled(True)
         else:
             self.Start_Button.setEnabled(False)
