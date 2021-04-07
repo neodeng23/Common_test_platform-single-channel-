@@ -32,8 +32,19 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.thread.start()
 
     def test_Add(self, test_item_res):
-        self.Test_Item.update_item_data(test_item_res)
         print(test_item_res)
+        if test_item_res[0] == "Running":
+            self.Test_Item.update_item_data(test_item_res)
+        elif test_item_res[0] == "pass":
+            num = self.Test_Item.rowCount()
+            self.Test_Item.setItem(num-1, 0, QTableWidgetItem(test_item_res[0]))  # 设置表格内容(行， 列) 文字
+            self.Test_Item.item(num-1, 0).setBackground(QBrush(QColor(0, 255, 0)))
+        elif test_item_res[0] == "Test_Fail!!!!" or test_item_res[0] == "All_Pass!!!!":
+            self.Test_Item.update_item_data(test_item_res)
+        else:
+            num = self.Test_Item.rowCount()
+            self.Test_Item.setItem(num - 1, 0, QTableWidgetItem(test_item_res[0]))  # 设置表格内容(行， 列) 文字
+            self.Test_Item.item(num - 1, 0).setBackground(QBrush(QColor(255, 0, 0)))
         self.Test_Item.scrollToBottom()
         if test_item_res[0] == 'All_Pass!!!!' :
             self.Start_Button.setEnabled(True)

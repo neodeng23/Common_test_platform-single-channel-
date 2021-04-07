@@ -47,6 +47,12 @@ def Test_Csv_item(row_list, line_num):
     return res
 
 
+def Get_Csv_item(row_list, line_num):
+    single_test_list = row_list[line_num]
+    res = Test_input_UI(single_test_list, "Running", '', '')
+    return res
+
+
 def Go_Test(single_test_list):
     """
     :param single_test_list: test.csv中的一行
@@ -78,7 +84,7 @@ def Go_Test(single_test_list):
     else:
         res = "Error"
         value = "Error step"
-    time.sleep(0.1)
+    time.sleep(2)
     # 待添加limits功能
     time_elapsed = datetime.now() - start_time
     dur = format(time_elapsed)[:-2]

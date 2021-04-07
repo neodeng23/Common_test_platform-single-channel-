@@ -34,9 +34,11 @@ class Update_data(QThread):
             row_list = [["invaild csv"]]
         line_num = len(row_list)
         for test_item in range(1, line_num):
-            updata_data = Test_Csv_item(row_list, test_item)
-            self.sinOut.emit(updata_data)
-            if updata_data[0] != "pass":
+            Run_data = Get_Csv_item(row_list, test_item)
+            self.sinOut.emit(Run_data)
+            update_data = Test_Csv_item(row_list, test_item)
+            self.sinOut.emit(update_data)
+            if update_data[0] != "pass":
                 res_flag = 1
             else:
                 pass
