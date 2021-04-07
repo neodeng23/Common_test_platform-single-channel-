@@ -62,3 +62,13 @@ class MyTable(QTableWidget):
             self.item(num, 0).setBackground(QBrush(QColor(255, 255, 0)))
         else:
             self.item(num, 0).setBackground(QBrush(QColor(255, 0, 0))) #红色
+
+    def update_item_data_without_add_new_line(self, data):
+        """
+        更新内容
+        data = [res, Step, TestGroup, TestName, CMD, LowLimit, value, UpLimit, Unit, duration]
+        """
+        num = self.rowCount()
+        for line_num in range(0, len(data)):
+            self.setItem(num-1, line_num, QTableWidgetItem(data[line_num]))  # 设置表格内容(行， 列) 文字
+        self.change_res_color(data[0], num-1)
