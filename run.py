@@ -21,6 +21,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.thread = Update_data()
         self.Start_Button.clicked.connect(self.click_start)
+        self.Start_Button.clicked.connect(self.label_time.timestart)
         self.thread.sinOut.connect(self.test_Add)
 
     def click_start(self):

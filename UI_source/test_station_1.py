@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtGui import QPalette, QPixmap, QFont
 from PyQt5.QtCore import Qt
 from Test_table import MyTable
+from count_time import ShowTime
 
 
 class Ui_MainWindow(object):
@@ -70,33 +71,33 @@ class Ui_MainWindow(object):
         self.Test_Item.setGeometry(QtCore.QRect(10, 250, 1171, 491))
         self.Test_Item.setObjectName("Test_Item")
 
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(980, 20, 191, 71))
-        self.label_2.setObjectName("label_2")
+        self.label_time = ShowTime(self.centralwidget)
+        self.label_time.setGeometry(QtCore.QRect(800, 20, 1000, 71))
+        self.label_time.setObjectName("label_time")
 
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(660, 10, 51, 31))
-        self.label_3.setObjectName("label_3")
+        # self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        # self.label_3.setGeometry(QtCore.QRect(660, 10, 51, 31))
+        # self.label_3.setObjectName("label_3")
+        #
+        # self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        # self.label_4.setGeometry(QtCore.QRect(660, 50, 51, 31))
+        # self.label_4.setObjectName("label_4")
+        #
+        # self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        # self.label_5.setGeometry(QtCore.QRect(660, 90, 51, 31))
+        # self.label_5.setObjectName("label_5")
 
-        self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(660, 50, 51, 31))
-        self.label_4.setObjectName("label_4")
-
-        self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(660, 90, 51, 31))
-        self.label_5.setObjectName("label_5")
-
-        self.pass_num = QtWidgets.QTableView(self.centralwidget)
-        self.pass_num.setGeometry(QtCore.QRect(720, 20, 161, 21))
-        self.pass_num.setObjectName("Attributes_2")
-
-        self.fail_num = QtWidgets.QTableView(self.centralwidget)
-        self.fail_num.setGeometry(QtCore.QRect(720, 60, 161, 21))
-        self.fail_num.setObjectName("Attributes_3")
-
-        self.total_num = QtWidgets.QTableView(self.centralwidget)
-        self.total_num.setGeometry(QtCore.QRect(720, 90, 161, 21))
-        self.total_num.setObjectName("Attributes_4")
+        # self.pass_num = QtWidgets.QTableView(self.centralwidget)
+        # self.pass_num.setGeometry(QtCore.QRect(720, 20, 161, 21))
+        # self.pass_num.setObjectName("Attributes_2")
+        #
+        # self.fail_num = QtWidgets.QTableView(self.centralwidget)
+        # self.fail_num.setGeometry(QtCore.QRect(720, 60, 161, 21))
+        # self.fail_num.setObjectName("Attributes_3")
+        #
+        # self.total_num = QtWidgets.QTableView(self.centralwidget)
+        # self.total_num.setGeometry(QtCore.QRect(720, 90, 161, 21))
+        # self.total_num.setObjectName("Attributes_4")
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -122,7 +123,7 @@ class Ui_MainWindow(object):
         self.Offline_Test_Button.setText(_translate("MainWindow", "Offline_Test"))
         self.Loop_Test_Button.setText(_translate("MainWindow", "Loop_Test"))
         self.Start_Button.setText(_translate("MainWindow", "Start"))
-        self.label_2.setText(_translate("MainWindow", "time"))
-        self.label_3.setText(_translate("MainWindow", "Pass"))
-        self.label_4.setText(_translate("MainWindow", "Fail"))
-        self.label_5.setText(_translate("MainWindow", "Total"))
+        #self.label_time.back_to_zero()
+        # self.label_3.setText(_translate("MainWindow", "Pass"))
+        # self.label_4.setText(_translate("MainWindow", "Fail"))
+        # self.label_5.setText(_translate("MainWindow", "Total"))
