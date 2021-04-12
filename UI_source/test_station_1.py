@@ -22,6 +22,8 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
+        #self.mainLayout = QtWidgets.QGridLayout(self)
+
         pe = QPalette()
         pe.setColor(QPalette.WindowText, Qt.blue)  # 设置字体颜色
         pe.setColor(QPalette.Window, Qt.darkGray)  # 设置背景颜色

@@ -1,7 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtCore import *
-from test_station_1 import *
-from load_csv import *
+from test_station_2 import *
 from Update_data import *
 import sys
 
@@ -22,6 +19,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.thread = Update_data()
         self.Start_Button.clicked.connect(self.click_start)
         self.Start_Button.clicked.connect(self.label_time.timestart)
+        self.serial_number_line.returnPressed.connect(self.click_start)
         self.thread.sinOut.connect(self.test_Add)
 
     def click_start(self):
@@ -33,9 +31,12 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         self.thread.start()
 
     def test_Add(self, test_item_res):
-        print(test_item_res)
-        if test_item_res[0] == "Running" or test_item_res[0] == "Test_Fail!!!!" or test_item_res[0] == "All_Pass!!!!":
+        #print(test_item_res)
+        if test_item_res[0] == "Running" :
             self.Test_Item.update_item_data(test_item_res)
+        elif test_item_res[0] == "Test_Fail!!!!" or test_item_res[0] == "All_Pass!!!!":
+            self.Test_Item.update_item_data(test_item_res)
+            self.label_time.timestop()
         else:
             self.Test_Item.update_item_data_without_add_new_line(test_item_res)
         self.Test_Item.scrollToBottom()

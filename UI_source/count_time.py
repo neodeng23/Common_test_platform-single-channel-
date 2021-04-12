@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QLabel, QPushButton, QGridLayout, QApplication, QLCDNumber
+from PyQt5.QtWidgets import QWidget, QLabel, QPushButton, QGridLayout, QApplication, QLCDNumber,QVBoxLayout
 from PyQt5.QtCore import QTime, QTimer
 import sys
 
@@ -9,12 +9,9 @@ class ShowTime(QWidget):
         self.isTimeStart = False  # 标记时间是否开始计时
         self.lcd = QLCDNumber(self)
         self.lcd.setDigitCount(8)
-        self.lcd.setStyleSheet("border: 1px solid black; color: black; background: silver;")
+
         self.lcd.display("00:00:00")
-        # self.lable_time = QLabel('运行时间：', self)
-        # self.lable_time_val = QLabel('00:00:00', self)
-        self.btn_start = QPushButton('开始显示')
-        self.btn_stop = QPushButton('停止计时')
+
         # 创建定时器对象和时间对象
         self.timer = QTimer()  #
         self.timeClock = QTime()
@@ -23,6 +20,10 @@ class ShowTime(QWidget):
         # self.btn_start.clicked.connect(self.timestart)
         self.timer.timeout.connect(self.addtime)
         # self.btn_stop.clicked.connect(self.timestop)
+
+        self.v_layout = QVBoxLayout()
+        self.v_layout.addWidget(self.lcd)
+        self.setLayout(self.v_layout)
 
     def back_to_zero(self):
         self.lcd.setDigitCount(8)
