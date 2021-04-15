@@ -37,8 +37,8 @@ class ShowTime(QWidget):
 
     def addtime(self):  # 计时时间增一秒，并显示在QLable上
         self.timeClock = self.timeClock.addMSecs(1000)  # 时间增加一秒
-        #self.lable_time_val.setText(self.timeClock.toString("hh:mm:ss"))  # 标签显示时间
-        print(self.timeClock.toString("hh:mm:ss"))
+        # self.lable_time_val.setText(self.timeClock.toString("hh:mm:ss"))  # 标签显示时间
+        # print(self.timeClock.toString("hh:mm:ss"))
         self.lcd.display(self.timeClock.toString("hh:mm:ss"))  # 标签显示时间
 
     def timestop(self):  # 停止计时

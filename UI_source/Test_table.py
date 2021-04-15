@@ -4,6 +4,10 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import sys
 import time
+import globalvar as gl
+import csv
+
+header_lines = ["res", "Step", "TestGroup", "TestName", "CMD", "LowLimit", "value", "UpLimit", "Unit", "duration"]
 
 
 class MyTable(QTableWidget):
@@ -72,3 +76,25 @@ class MyTable(QTableWidget):
         for line_num in range(0, len(data)):
             self.setItem(num-1, line_num, QTableWidgetItem(data[line_num]))  # 设置表格内容(行， 列) 文字
         self.change_res_color(data[0], num-1)
+
+    def handleSave(self):
+        #now_time = time.strftime('%Y%m%d-%H-%M-%S')
+        log = gl.get_value('log_func')
+        SN = gl.get_value('SN')
+        log_path = gl.get_value('path')     # "D:\station_log\\" + serial_number + "\\"
+        csv_name = log_path + SN + ".csv"
+        log.logger.info("开始记录全部测试结果，路径为： " + log_path)
+        with open(csv_name, 'w', newline="") as stream:
+            writer = csv.writer(stream)
+            writer.writerow(header_lines)
+            for row in range(self.rowCount()):
+                rowdata = []
+                for column in range(self.columnCount()):
+                    item = self.item(row, column)
+                    if item is not None:
+                        rowdata.append(
+                            item.text())
+                    else:
+                        rowdata.append('')
+                log.logger.info(rowdata)
+                writer.writerow(rowdata)

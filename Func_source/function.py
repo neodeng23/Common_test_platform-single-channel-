@@ -5,6 +5,7 @@ import csv
 import time
 from serial_test import serial_send_cmd
 from datetime import datetime
+import globalvar as gl
 
 
 header_lines = ["enabled", "Step", "TestGroup", "TestName", "PortDevice", "RetryTimes", "Cmd", "SendEndSympol", "TimeOut", "CheckValue", "LowLimit", "UpLimit", "unit"]
@@ -26,6 +27,7 @@ def Initialize_test_table(csvFile, row_list=None):
         11    "UpLimit",
         12    "unit"
     """
+    log = gl.get_value('log_func')
     if row_list is None:
         row_list = []
     reader = csv.reader(csvFile)
@@ -33,7 +35,7 @@ def Initialize_test_table(csvFile, row_list=None):
         row_list.append(row)
     if row_list[0] != header_lines:
         row_list = [["error"]]
-    print("finish Initialize_test_table")
+    log.logger.info("finish Initialize_test_table")
     return row_list
 
 
@@ -58,6 +60,7 @@ def Go_Test(single_test_list):
     :param single_test_list: test.csv中的一行
     :return: 测试结果，测试值，测试时间
     """
+    log = gl.get_value('log_func')
     res = "pass"
     value = "23"
     start_time = datetime.now()
@@ -84,10 +87,15 @@ def Go_Test(single_test_list):
     else:
         res = "Error"
         value = "Error step"
-    time.sleep(2)
+    time.sleep(0.5)
     # 待添加limits功能
     time_elapsed = datetime.now() - start_time
     dur = format(time_elapsed)[:-2]
+    log.logger.info("\n" +
+                    "test_device: " + test_device + ";\n" +
+                    "test_cmd: " + test_cmd + ";\n" +
+                    "test_res: " + res + ";\n" +
+                    "test_value: " + value + ".")
     return res, value, dur
 
 
@@ -103,6 +111,17 @@ def Test_input_UI(single_test_list, res, value, duration):
     #duration = duration
     data = [res, Step, TestGroup, TestName, CMD, LowLimit, value, UpLimit, Unit, duration]
     return data
+
+
+def WhetherPathExist(path):
+    """
+    :param 路径
+    :return: 检查路径是否存在，若不存在则创建此路径
+    """
+    if os.path.exists(path):
+        pass
+    else:
+        os.makedirs(path)
 
 
 def Check_value(value):
