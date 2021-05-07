@@ -8,7 +8,7 @@ import time
 
 # path = "C:/Users/jsyzdlf/Desktop/"
 # path = "C:/Users/Administrator/Desktop/"
-path = "C:/test_config/"
+path = "E:/test_config/"
 
 csv_name = "test.csv"
 

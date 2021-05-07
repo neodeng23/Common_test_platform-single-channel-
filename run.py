@@ -34,7 +34,7 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         # 初始化Log
         gl._init()
         now_time = time.strftime('%Y%m%d-%H%M%S')
-        path = "D:\station_log\\" + serial_number + "\\" + now_time + "\\"
+        path = "E:\station_log\\" + serial_number + "\\" + now_time + "\\"
         WhetherPathExist(path)
         LOG_path = path + "test.log"
         log = Logger(LOG_path)
