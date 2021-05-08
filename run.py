@@ -34,13 +34,17 @@ class MyMainForm(QMainWindow, Ui_MainWindow):
         # 初始化Log
         gl._init()
         now_time = time.strftime('%Y%m%d-%H%M%S')
+        now_day = time.strftime('%Y%m%d')
         path = "E:\station_log\\" + serial_number + "\\" + now_time + "\\"
+        summary_path = "E:\station_log\\summary_log\\"
         WhetherPathExist(path)
         LOG_path = path + "test.log"
         log = Logger(LOG_path)
         gl.set_value('SN', serial_number)
         gl.set_value('path', path)
-        gl.set_value('log_func', log)   # 将生成Log实例化对象设为全局变量
+        gl.set_value('log_func', log)
+        gl.set_value('now_day', now_day)
+        gl.set_value('summary_path', summary_path)  # 将生成Log实例化对象设为全局变量
 
         # SN输入框无法编辑
         self.serial_number_line.setReadOnly(True)

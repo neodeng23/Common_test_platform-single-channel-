@@ -27,7 +27,7 @@ def Initialize_test_table(csvFile, row_list=None):
         11    "UpLimit",
         12    "unit"
     """
-    log = gl.get_value('log_func')
+    # log = gl.get_value('log_func')
     if row_list is None:
         row_list = []
     reader = csv.reader(csvFile)
@@ -35,7 +35,7 @@ def Initialize_test_table(csvFile, row_list=None):
         row_list.append(row)
     if row_list[0] != header_lines:
         row_list = [["error"]]
-    log.logger.info("finish Initialize_test_table")
+    # log.logger.info("finish Initialize_test_table")
     return row_list
 
 
@@ -124,9 +124,29 @@ def WhetherPathExist(path):
         os.makedirs(path)
 
 
+def get_test_name_list():
+    test_name_list = []
+    csvFile = open("E:\\test_config\\test.csv", newline='')
+    row_list = Initialize_test_table(csvFile)
+    for i in range(1, len(row_list)):
+        a = row_list[i][3]
+        test_name_list.append(a)
+    return test_name_list
+
+
 def Check_value(value):
     pass
 
 
-if __name__ == "__main__":
-    pass
+def handle_summary_log(data, SN):
+    """
+    从每份单独SN的测试结果CSV中，解析出需要上传给summary的list
+    """
+
+    update_list = [SN]  # 定义传送给summary csv的列表
+    for i in range(0, len(data)-1):
+        test_value = data[i][6]
+        update_list.append(test_value)
+    duration = data[-1][-1]
+    update_list.append(duration)
+    return update_list

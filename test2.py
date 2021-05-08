@@ -1,0 +1,6 @@
+from function import *
+
+data = [['pass', 'UartCom', 'Resistance', 'Open L Resistance Channel', 'TurnLResistance\\r\\n', '', 'fail send cmd', '', '', '0:00:00.5014'], ['pass', 'UartCom', 'Resistance', 'L Resistance', 'MEASure:RESIstance?', '', 'fail send cmd', '', 'ohm', '0:00:00.5115'], ['pass', 'CutOut', 'Resistance', 'L Resistance', 'Sci2Sta.py', '', '23', '', '', '0:00:00.5050'], ['pass', 'Judge', 'Resistance', 'L Resistance', '', '', '23', '', '', '0:00:00.5088'], ['pass', 'UartCom', 'Resistance', 'Open R Resistance Channel', 'TurnRResistance\\r\\n', '', 'fail send cmd', '', '', '0:00:00.5113'], ['pass', 'UartCom', 'Resistance', 'R Resistance', 'MEASure:RESIstance?', '', 'fail send cmd', '', '', '0:00:00.5051'], ['pass', 'CutOut', 'Resistance', 'R Resistance', 'Sci2Sta.py', '', '23', '', '', '0:00:00.5033'], ['pass', 'Judge', 'Resistance', 'R Resistance', '', '', '23', '', '', '0:00:00.5037'], ['pass', 'UartCom', 'Fixture', 'Open 29 K5', 'OpenAppointRelay:29\\r\\n', '', 'fail send cmd', '', '', '0:00:00.5088'], ['All_Pass!!!!', '', '', '', '', '', '', '', '', '0:00:04.5709']]
+
+res = handle_summary_log(data, "111111")
+print(res)
